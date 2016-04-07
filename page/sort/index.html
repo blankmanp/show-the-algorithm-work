@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="sort.css">
         <script src="polyfill.js" type="text/javascript" charset="utf-8"></script>
-        <script src="sort/sort.js" type="text/javascript" charset="utf-8"></script>
+        <script src="myutil.js" type="text/javascript" charset="utf-8"></script>
     </head>
     <body>
         <div class="container">
@@ -14,18 +14,47 @@
             <div class="container-fluid">
                 <h2 class="algorithmCategory">排序算法</h2>
                 <div class="container-fluid category">
-                    <h3 class="categoryName" id="bubbleSort">冒泡算法</h3>
-                    <canvas id="bubbleSortCanvas" width="200" height="200"></canvas>
+                    <h3 class="categoryName" id="insertSort">插入排序</h3>
+                    <canvas id="insertSortCanvas" width="200" height="200"></canvas>
                 </div>
+                <script type="text/javascript" charset="utf-8" src="sort/insertSort.js"></script>
+                <pre class="codePreview">
+                    <code>
+                        <%= insertSort %>
+                    </code>
+                </pre>
+                <div class="container-fluid category">
+                    <h3 class="categoryName" id="selectSort">选择排序</h3>
+                    <canvas id="selectSortCanvas" width="200" height="200"></canvas>
+                </div>
+                <script type="text/javascript" charset="utf-8" src="sort/selectSort.js"></script>
+                <pre class="codePreview">
+                    <code>
+                        <%= selectSort %>
+                    </code>
+                </pre>
+                <div class="container-fluid category">
+                    <h3 class="categoryName" id="bubbleSort">冒泡排序</h3>
+                    <canvas id="bubbleSortCanvas" width="200" height="200"></canvas>
+                    <script src="sort/bubbleSort.js" type="text/javascript" charset="utf-8"></script>
+                    <pre class="codePreview">
+                        <code>
+                            <%= bubbleSort %>
+                        </code>
+                    </pre>
+                </div>
+                <script type="text/javascript" charset="utf-8" src="sort/bubbleSort.js"></script>
+                <pre class="codePreview">
+                    <code>
+                        <%= bubbleSort %>
+                    </code>
+                </pre>
             </div>
         </div>
-        <pre class="codePreview">
-            <code>
-                <%= sort %>
-            </code>
-        </pre>
     </body>
     <script>
-        Sort.bubble([90, 10, 30, 85, 40], document.getElementById('bubbleSortCanvas'));
+        insertSort([90, 85, 40, 30, 20, 10], document.getElementById('insertSortCanvas'));
+        selectSort([90, 85, 40, 30, 20, 10], document.getElementById('selectSortCanvas'));
+        bubbleSort([90, 85, 40, 30, 20, 10], document.getElementById('bubbleSortCanvas'));
     </script>
 </html>

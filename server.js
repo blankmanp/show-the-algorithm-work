@@ -2,7 +2,7 @@
 * @Author: pengyanxin
 * @Date:   2016-04-05 23:04:38
 * @Last Modified by:   pengyanxin
-* @Last Modified time: 2016-04-06 21:45:30
+* @Last Modified time: 2016-04-07 15:23:17
 */
 
 'use strict';
@@ -46,6 +46,21 @@ fs.readdir(`${pagePath}`, (err, folders) => {
                                 babelTransform(`${pagePath}/${folder}/${changeFile}`);
                             }
                         })
+                    }
+                })
+            })
+        }
+    })
+})
+
+// 删除被删除的js文件
+fs.readdir(`${jsPath}`, (err, folders) => {
+    folders.forEach((folder) => {
+        if (!path.extname(folder)) {
+            fs.readdir(`${jsPath}/${folder}`, (error, files) => {
+                files.forEach((file) => {
+                    if (!fs.existsSync(`${pagePath}/${folder}/${file}`)) {
+                        fs.unlinkSync(`${jsPath}/${folder}/${file}`);
                     }
                 })
             })
